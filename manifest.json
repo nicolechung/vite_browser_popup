@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "CatsDogs",
+  "version": "0.1",
+  "description": "Replace your images with pets",
+  "action": {
+    "default_icon": {
+      "64": "src/img/gallery_64.png"
+    },
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "icons": {
+    "16": "src/img/gallery_16.png",
+    "64": "src/img/gallery_64.png"
+  },
+  "permissions": ["tabs", "storage", "activeTab", "scripting"],
+  "host_permissions": ["http://*/", "https://*/"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content_script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/img/ben-michel-Uyn3kXAaZX8-unsplash.jpg",
+        "src/img/nine-koepfer-lpgAlv8I7V8-unsplash.jpg",
+        "src/img/cat_512.png",
+        "src/img/dog_512.png"
+      ],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}
